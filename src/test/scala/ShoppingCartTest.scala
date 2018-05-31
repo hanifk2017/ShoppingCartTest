@@ -38,4 +38,20 @@ class ShoppingCartTest extends FunSuite with BeforeAndAfter {
     assert(shoppingCart.computeTotal(Seq("Apple", "Apple", "Orange", "Apple")) == 2.05)
   }
 
+  test("Null item list for computeTotalWithDiscounts should return zero as total") {
+    assert(shoppingCart.computeTotalWithDiscounts(Nil) == 0.0)
+  }
+
+  test("1 apple and 1 orange for computeTotalWithDiscounts should return 0.85 as total") {
+    assert(shoppingCart.computeTotalWithDiscounts(Seq("Apple", "Orange")) == 0.85)
+  }
+
+  test("2 apples and 3 oranges for computeTotalWithDiscounts should return 1.10 as total") {
+    assert(shoppingCart.computeTotalWithDiscounts(Seq("Apple", "Apple", "Orange", "Orange", "Orange")) == 1.10)
+  }
+
+  test("5 apples and 5 oranges for computeTotalWithDiscounts should return 2.80 as total") {
+    assert(shoppingCart.computeTotalWithDiscounts(Seq("Apple", "Apple", "Apple", "Apple", "Apple", "Orange", "Orange", "Orange", "Orange", "Orange")) == 2.80)
+  }
+
 }
