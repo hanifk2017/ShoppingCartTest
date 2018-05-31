@@ -10,7 +10,7 @@ class ShoppingCart {
 
   def computeTotalWithDiscounts(cartItems: Seq[String]): BigDecimal = {
 
-    // could possibly simplified to a one liner with filter, zipWithIndex and modulus
+    // could possibly be simplified to a one liner with filter, zipWithIndex and modulus
 
     // apple offer - buy 1 get 1 free
 
